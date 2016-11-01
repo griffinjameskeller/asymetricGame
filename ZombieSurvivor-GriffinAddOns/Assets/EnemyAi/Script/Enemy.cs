@@ -43,14 +43,14 @@ public class Enemy : MonoBehaviour {
 
 	void Patrol () {
 
+		routeEnd = GameObject.FindGameObjectWithTag ("Goal").transform;
+
 		distanceAway = Vector3.Distance(routeEnd.position, transform.position);
 
 		if (routeEnd) {
 			navComponent.SetDestination (routeEnd.position);
 		} else if (routeEnd == null) {
 			routeEnd = this.gameObject.GetComponent<Transform> ();
-		} else {
-			routeEnd = GameObject.FindGameObjectWithTag ("Goal").transform;
 		}
 
 	}

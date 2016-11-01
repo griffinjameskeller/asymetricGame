@@ -5,6 +5,7 @@ public class Trap : MonoBehaviour {
 
 	public float proximity;
 	public int uses;
+	public bool limited;
 
 	void Update() {
 
@@ -26,7 +27,9 @@ public class Trap : MonoBehaviour {
 
 			if (distanceAway < proximity) {
 
-				uses--;
+				if (limited) {
+					uses--;
+				}
 				Destroy (col.gameObject);
 
 			}
