@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour {
+public class enemy : MonoBehaviour {
 	
 	public float deathDistance = 0.5f;
 	public float distanceAway;
 	public bool inSight, active;
-	public Transform enemy, target, routeEnd;
+	public Transform minion, target, routeEnd;
 	public string targetName;
 	private NavMeshAgent navComponent;
 
