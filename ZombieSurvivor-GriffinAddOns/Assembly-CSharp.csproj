@@ -47,11 +47,12 @@
   <ItemGroup>
      <Compile Include="Assets\EnemyAi\Script\Enemy.cs" />
      <Compile Include="Assets\EnemyAi\Script\Trap.cs" />
+     <Compile Include="Assets\EnemyAi\Script\gameEnder.cs" />
+     <Compile Include="Assets\EnemyAi\Script\minionSpawner.cs" />
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\genLight.cs" />
      <Compile Include="Assets\generator.cs" />
      <Compile Include="Assets\generic.cs" />
-     <Compile Include="Assets\minionSpawner.cs" />
      <Compile Include="Assets\playerEngiController.cs" />
      <Compile Include="Assets\playerShooterController.cs" />
      <Compile Include="Assets\projectileExplode.cs" />
