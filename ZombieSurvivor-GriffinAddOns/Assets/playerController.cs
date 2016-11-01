@@ -10,7 +10,7 @@ public class playerController : MonoBehaviour {
 	private bool isZombie = false;
 	private const float WALK_SPEED = 0.08f;
 
-	protected float runLevel = 10f;
+	protected float runLevel = 1f;
 
 	public void hit(int point){
 		if (!isZombie) {
@@ -29,6 +29,9 @@ public class playerController : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		print ("a");
+		updating ();
+
 		float valuex = Input.GetAxis ("Horizontal"); 
 		//Left right button
 		float valuey = Input.GetAxis ("Vertical"); 
@@ -40,7 +43,7 @@ public class playerController : MonoBehaviour {
 
 		//Walking and attacking
 		if (valuex != 0 || valuey != 0) {
-			walk (new Vector3(valuex*WALK_SPEED*speedAlter,0f,valuey*WALK_SPEED*speedAlter));
+			walk (new Vector3(valuex*WALK_SPEED*speedAlter,0f,valuey*WALK_SPEED*speedAlter*runLevel));
 		} 
 		if (action) {
 			startAction1 ();
@@ -54,17 +57,19 @@ public class playerController : MonoBehaviour {
 			stopAction2 ();
 		}
 	}
-
-	private void startAction1(){
+	protected virtual void updating(){
 		//add action
 	}
-	private void startAction2(){
+	protected virtual void startAction1(){
 		//add action
 	}
-	private void stopAction1(){
+	protected virtual void startAction2(){
 		//add action
 	}
-	private void stopAction2(){
+	protected virtual void stopAction1(){
+		//add action
+	}
+	protected virtual void stopAction2(){
 		//add action
 	}
 
