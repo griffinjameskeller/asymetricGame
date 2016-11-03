@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/EnemyAi/Pathfinding.unity
+=======
+- path: Assets/Griffin/GriffinTestScene.unity
+>>>>>>> aa6d9f484ad08e02592a8af5253b1ca8576ac6e3
   isLoaded: 1
   isActive: 1
