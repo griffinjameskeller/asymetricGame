@@ -8,9 +8,9 @@ public class playerController : MonoBehaviour {
 	private int hp = 100;
 	private float speedAlter = 1;
 	private bool isZombie = false;
-	private const float WALK_SPEED = 0.08f;
-	private Rigidbody rb;
+	private const float WALK_SPEED = 3f;
 
+	protected Vector3 facing;
 	protected float runLevel = 1f;
 
 	public void hit(int point){
@@ -26,14 +26,10 @@ public class playerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		char1 = gameObject;
-		//rb = GetComponent<Rigidbody> ();
-
-
 		charBody1 = GameObject.Find (name + "body");
 	}
 	// Update is called once per frame
 	void Update () {
-		//print ("a");
 		updating ();
 
 		float valuex = Input.GetAxis ("Horizontal"); 
@@ -47,9 +43,11 @@ public class playerController : MonoBehaviour {
 
 		//Walking and attacking
 		if (valuex != 0 || valuey != 0) {
-			walk (new Vector3(valuex*WALK_SPEED*speedAlter*runLevel,0f,valuey*WALK_SPEED*speedAlter*runLevel));
-			//walk2(valuex*10,valuey*10);
-		} 
+			walk (new Vector3 (valuex, 0f, valuey));
+		} else {
+			stopWalk ();
+		}
+
 		if (action) {
 			startAction1 ();
 		} else {
@@ -82,17 +80,17 @@ public class playerController : MonoBehaviour {
 		isZombie = true;
 		speedAlter = 0.2f;
 	}
-
-	private void walk2(float x, float y){
-		rb.velocity = new Vector3(x,0.0f,y);
-		print (rb.velocity.x);
+	private void stopWalk(){
+		char1.GetComponent<Rigidbody> ().velocity =new Vector3();
 	}
-
 	private void walk(Vector3 dir){
 		float finalAngle;
 		float myAngle;
 
-		char1.transform.Translate (dir);
+		//char1.transform.Translate (dir*WALK_SPEED*speedAlter);
+
+		char1.GetComponent<Rigidbody> ().velocity = dir * WALK_SPEED * speedAlter;
+
 		finalAngle = Mathf.Atan2(dir.x,dir.z)/Mathf.PI*180f;
 		if (finalAngle < 0) {
 			finalAngle = 360f + finalAngle;
@@ -104,5 +102,9 @@ public class playerController : MonoBehaviour {
 		}
 		charBody1.transform.eulerAngles = new Vector3(0f,myAngle,0f);
 
+		facing = dir;
 	}
+
+
+		
 }

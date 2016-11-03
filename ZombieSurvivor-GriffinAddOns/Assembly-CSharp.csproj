@@ -53,11 +53,11 @@
      <Compile Include="Assets\Griffin\scripts\genLight.cs" />
      <Compile Include="Assets\Griffin\scripts\generator.cs" />
      <Compile Include="Assets\Griffin\scripts\generic.cs" />
+     <Compile Include="Assets\Griffin\scripts\playerController.cs" />
      <Compile Include="Assets\Griffin\scripts\playerEngiController.cs" />
      <Compile Include="Assets\Griffin\scripts\playerShooterController.cs" />
      <Compile Include="Assets\Griffin\scripts\playerTrapController.cs" />
      <Compile Include="Assets\Griffin\scripts\projectileExplode.cs" />
-     <Compile Include="Assets\playerController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
