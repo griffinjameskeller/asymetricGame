@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\EnemyAi\Script\Enemy.cs" />
+     <Compile Include="Assets\EnemyAi\Script\enemy.cs" />
      <Compile Include="Assets\EnemyAi\Script\gameEnder.cs" />
      <Compile Include="Assets\EnemyAi\Script\minionSpawner.cs" />
      <Compile Include="Assets\EnemyAi\Script\trap.cs" />
