@@ -45,14 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-     <Compile Include="Assets\EnemyAi\Script\enemy.cs" />
-=======
      <Compile Include="Assets\EnemyAi\Script\Enemy.cs" />
      <Compile Include="Assets\EnemyAi\Script\Trap.cs" />
->>>>>>> Stashed changes
      <Compile Include="Assets\EnemyAi\Script\gameEnder.cs" />
      <Compile Include="Assets\EnemyAi\Script\minionSpawner.cs" />
+     <Compile Include="Assets\Griffin\scripts\genFixLevel.cs" />
      <Compile Include="Assets\Griffin\scripts\genLight.cs" />
      <Compile Include="Assets\Griffin\scripts\generator.cs" />
      <Compile Include="Assets\Griffin\scripts\generic.cs" />

@@ -6,8 +6,6 @@
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll'
--r:'/Applications/Unity/PlaybackEngines/AppleTVSupport/UnityEditor.iOS.Extensions.Common.dll'
--r:'/Applications/Unity/PlaybackEngines/AppleTVSupport/UnityEditor.iOS.Extensions.Xcode.dll'
 -r:'/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll'
 -r:'/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll'
 -define:UNITY_5_3_OR_NEWER
@@ -85,11 +83,10 @@
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
--define:UNITY_TEAM_LICENSE
-'Assets/EnemyAi/Script/enemy.cs'
+'Assets/EnemyAi/Script/Enemy.cs'
+'Assets/EnemyAi/Script/Trap.cs'
 'Assets/EnemyAi/Script/gameEnder.cs'
 'Assets/EnemyAi/Script/minionSpawner.cs'
-'Assets/EnemyAi/Script/trap.cs'
 'Assets/Griffin/scripts/genLight.cs'
 'Assets/Griffin/scripts/generator.cs'
 'Assets/Griffin/scripts/generic.cs'

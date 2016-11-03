@@ -5,7 +5,7 @@ public class playerEngiController : playerController {
 	
 	public bool fixing = false;
 	public int numGenFixed = 0;
-	public bool goalAchieved = true;
+	public bool goalAchieved = false;
 
 
 	// Update is called once per frame

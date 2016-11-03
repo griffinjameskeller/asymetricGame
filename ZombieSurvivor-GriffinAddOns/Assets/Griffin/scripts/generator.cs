@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class generator : MonoBehaviour {
@@ -10,6 +11,7 @@ public class generator : MonoBehaviour {
 	public bool genFixed = false;
 	public bool inArea = false;
 	public float fixSpeed = 1f;
+	public Slider healthSlider;
 
 	// Use this for initialization
 	void Start () {

@@ -12,12 +12,12 @@ public class minionSpawner : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-
-		print (Time.deltaTime);
+		
+		//print (Time.deltaTime);
 
 		timer = timer + Time.deltaTime;
 
-		print (timer);
+		//print (timer);
 
 		if (timer >= activate) {
 
