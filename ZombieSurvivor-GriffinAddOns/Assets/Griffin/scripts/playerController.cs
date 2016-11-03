@@ -20,6 +20,7 @@ public class playerController : MonoBehaviour {
 				becomeZombie ();
 			}
 		} 
+		print (hp);
 	}
 
 
@@ -42,22 +43,24 @@ public class playerController : MonoBehaviour {
 		//Action button
 
 		//Walking and attacking
-		if (valuex != 0 || valuey != 0) {
-			walk (new Vector3 (valuex, 0f, valuey));
-		} else {
-			stopWalk ();
-		}
+		if (!isZombie) {
+			if (valuex != 0 || valuey != 0) {
+				walk (new Vector3 (valuex, 0f, valuey));
+			} else {
+				stopWalk ();
+			}
 
-		if (action) {
-			startAction1 ();
-		} else {
-			stopAction1 ();
-		}
+			if (action) {
+				startAction1 ();
+			} else {
+				stopAction1 ();
+			}
 
-		if (actionTwo) {
-			startAction2 ();
-		} else {
-			stopAction2 ();
+			if (actionTwo) {
+				startAction2 ();
+			} else {
+				stopAction2 ();
+			}
 		}
 	}
 	protected virtual void updating(){
@@ -103,6 +106,12 @@ public class playerController : MonoBehaviour {
 		charBody1.transform.eulerAngles = new Vector3(0f,myAngle,0f);
 
 		facing = dir;
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		if(collision.gameObject.tag=="Minion"){
+			hit (50);
+		}
 	}
 
 
