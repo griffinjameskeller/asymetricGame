@@ -34,12 +34,14 @@ public class playerShooterController : playerController {
 	}
 	private void shoot(){
 		RaycastHit hit;
-		if (Physics.Raycast (transform.position, facing, out hit)) {
-			if (hit.collider.gameObject.tag == "zombie") {
-				
+		float distance = 100f;
+		if (Physics.Raycast (transform.position, facing * distance, out hit, 10000f)) {
+			print (hit.collider.gameObject.name);
+			if (hit.collider.gameObject.name == "face") {
+				Destroy(hit.collider.gameObject);
 			}
 		}
-		float distance = 10f;
+
 		Debug.DrawRay (transform.position, facing * distance);
 	}
 	private void shoot2(){
