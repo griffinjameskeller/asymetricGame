@@ -13,6 +13,9 @@ public class enemy : MonoBehaviour {
 	void Start() 
 	{
 		navComponent = this.gameObject.GetComponent<NavMeshAgent>();
+		routeEnd = GameObject.FindGameObjectWithTag ("Goal").transform;
+		target = GameObject.FindGameObjectWithTag ("Goal").transform;
+		minion = this.gameObject.transform;
 	}
 
 	void FixedUpdate() {
@@ -42,8 +45,6 @@ public class enemy : MonoBehaviour {
 	}
 
 	void Patrol () {
-
-		routeEnd = GameObject.FindGameObjectWithTag ("Goal").transform;
 
 		distanceAway = Vector3.Distance(routeEnd.position, transform.position);
 

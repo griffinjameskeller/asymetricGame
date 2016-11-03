@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class trap : MonoBehaviour {
+public class traps : MonoBehaviour {
 
 	public float proximity;
 	public int uses;
