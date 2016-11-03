@@ -9,6 +9,7 @@ public class playerController : MonoBehaviour {
 	private float speedAlter = 1;
 	private bool isZombie = false;
 	private const float WALK_SPEED = 0.08f;
+	private Rigidbody rb;
 
 	protected float runLevel = 1f;
 
@@ -25,11 +26,14 @@ public class playerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		char1 = gameObject;
+		//rb = GetComponent<Rigidbody> ();
+
+
 		charBody1 = GameObject.Find (name + "body");
 	}
 	// Update is called once per frame
 	void Update () {
-		print ("a");
+		//print ("a");
 		updating ();
 
 		float valuex = Input.GetAxis ("Horizontal"); 
@@ -43,7 +47,8 @@ public class playerController : MonoBehaviour {
 
 		//Walking and attacking
 		if (valuex != 0 || valuey != 0) {
-			walk (new Vector3(valuex*WALK_SPEED*speedAlter,0f,valuey*WALK_SPEED*speedAlter*runLevel));
+			walk (new Vector3(valuex*WALK_SPEED*speedAlter*runLevel,0f,valuey*WALK_SPEED*speedAlter*runLevel));
+			//walk2(valuex*10,valuey*10);
 		} 
 		if (action) {
 			startAction1 ();
@@ -76,6 +81,11 @@ public class playerController : MonoBehaviour {
 	private void becomeZombie(){
 		isZombie = true;
 		speedAlter = 0.2f;
+	}
+
+	private void walk2(float x, float y){
+		rb.velocity = new Vector3(x,0.0f,y);
+		print (rb.velocity.x);
 	}
 
 	private void walk(Vector3 dir){

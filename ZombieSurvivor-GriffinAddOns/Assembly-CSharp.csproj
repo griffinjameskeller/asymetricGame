@@ -45,10 +45,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
      <Compile Include="Assets\EnemyAi\Script\enemy.cs" />
      <Compile Include="Assets\EnemyAi\Script\gameEnder.cs" />
      <Compile Include="Assets\EnemyAi\Script\minionSpawner.cs" />
      <Compile Include="Assets\EnemyAi\Script\trap.cs" />
+=======
+     <Compile Include="Assets\EnemyAi\Script\Enemy.cs" />
+     <Compile Include="Assets\EnemyAi\Script\Trap.cs" />
+     <Compile Include="Assets\EnemyAi\Script\gameEnder.cs" />
+     <Compile Include="Assets\EnemyAi\Script\minionSpawner.cs" />
+     <Compile Include="Assets\Griffin\scripts\genFixLevel.cs" />
+>>>>>>> 2dfad9e17092559ed0325513a0189789d3174ad4
      <Compile Include="Assets\Griffin\scripts\genLight.cs" />
      <Compile Include="Assets\Griffin\scripts\generator.cs" />
      <Compile Include="Assets\Griffin\scripts\generic.cs" />
