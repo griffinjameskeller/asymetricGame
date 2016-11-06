@@ -12,7 +12,7 @@ public class playerShooterController : playerController {
 		shoot ();
 	}
 	protected override void startAction2(){
-		shoot2 ();
+		
 	}
 	protected override void stopAction1(){
 		
@@ -44,13 +44,7 @@ public class playerShooterController : playerController {
 
 		Debug.DrawRay (transform.position, facing * distance);
 	}
-	private void shoot2(){
-		if (CD_Bomb == 0) {
-			CD_Bomb = 10;
-			startCoolDown ();
-			GameObject missile = Instantiate (explosive, transform.position + facing * 0.08f, char1.transform.rotation) as GameObject;
-		}
-	}
+
 
 
 

@@ -32,16 +32,17 @@ public class enemy : MonoBehaviour {
 
 		active = true;
 
-		distanceAway = Vector3.Distance(target.position, transform.position);
+		float distanceAway;
 
-		if (routeEnd) {
+		GameObject obj = GameObject.Find (targetName);
+
+		if (inSight && obj!=null) {
+			target = obj.transform;
+			distanceAway = Vector3.Distance(target.position, transform.position);
 			navComponent.SetDestination (target.position);
-		} else if (routeEnd == null) {
-			routeEnd = this.gameObject.GetComponent<Transform> ();
 		} else {
-			routeEnd = GameObject.FindGameObjectWithTag (targetName).transform;
+			navComponent.SetDestination (routeEnd.position);
 		}
-
 	}
 
 	void Patrol () {
@@ -58,7 +59,7 @@ public class enemy : MonoBehaviour {
 
 	void OnTriggerStay (Collider col) {
 
-		if (col.gameObject.CompareTag ("Player")) {
+		if (col.gameObject.CompareTag ("Player") || col.gameObject.CompareTag ("Engineer")) {
 			inSight = true;
 			target = col.gameObject.transform;
 			targetName = col.gameObject.name;
@@ -68,7 +69,7 @@ public class enemy : MonoBehaviour {
 
 	void OnTriggerExit (Collider col) {
 
-		if (col.gameObject.CompareTag ("Player")) {
+		if (col.gameObject.CompareTag ("Player") || col.gameObject.CompareTag ("Engineer")) {
 			inSight = false;
 		}
 

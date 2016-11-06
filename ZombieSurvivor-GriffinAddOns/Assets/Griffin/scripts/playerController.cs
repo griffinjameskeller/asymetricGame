@@ -4,11 +4,14 @@ using System.Collections;
 public class playerController : MonoBehaviour {
 	protected GameObject char1;
 	protected GameObject charBody1;
+	public string xcontrol;
+	public string ycontrol;
+	public string firecontrol;
 
-	private int hp = 100;
+	private int hp = 300;
 	private float speedAlter = 1;
 	private bool isZombie = false;
-	private const float WALK_SPEED = 3f;
+	private const float WALK_SPEED = 6f;
 
 	protected Vector3 facing;
 	protected float runLevel = 1f;
@@ -33,13 +36,13 @@ public class playerController : MonoBehaviour {
 	void Update () {
 		updating ();
 
-		float valuex = Input.GetAxis ("Horizontal"); 
+		float valuex = Input.GetAxis (xcontrol); 
 		//Left right button
-		float valuey = Input.GetAxis ("Vertical"); 
+		float valuey = Input.GetAxis (ycontrol); 
 		//Up down button
-		bool action = Input.GetButton ("Fire1");
+		bool action = Input.GetButton (firecontrol);
 		//Action button
-		bool actionTwo = Input.GetButton ("Fire2");
+		//bool actionTwo = Input.GetButton ("XXX");
 		//Action button
 
 		//Walking and attacking
@@ -56,11 +59,11 @@ public class playerController : MonoBehaviour {
 				stopAction1 ();
 			}
 
-			if (actionTwo) {
+			/*if (actionTwo) {
 				startAction2 ();
 			} else {
 				stopAction2 ();
-			}
+			}*/
 		}
 	}
 	protected virtual void updating(){
@@ -82,6 +85,8 @@ public class playerController : MonoBehaviour {
 	private void becomeZombie(){
 		isZombie = true;
 		speedAlter = 0.2f;
+		Destroy (char1);
+		Destroy (charBody1);
 	}
 	private void stopWalk(){
 		char1.GetComponent<Rigidbody> ().velocity =new Vector3();
