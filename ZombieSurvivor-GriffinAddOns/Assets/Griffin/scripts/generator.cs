@@ -15,7 +15,7 @@ public class generator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		engineer = GameObject.Find ("playerEng").GetComponent<playerEngiController> ();
 	}
 	
 	// Update is called once per frame
@@ -38,6 +38,7 @@ public class generator : MonoBehaviour {
 		} if (genFixLevel >= 10 && !genFixed) {
 			engineer.numGenFixed = engineer.numGenFixed + 1;
 			genFixed = true;
+			GameObject.Find ("MinionManager").SendMessage ("AddMaxCount");
 		}
 
 	}

@@ -12,7 +12,6 @@ public class playerShooterController : playerController {
 		shoot ();
 	}
 	protected override void startAction2(){
-		
 	}
 	protected override void stopAction1(){
 		
@@ -34,17 +33,18 @@ public class playerShooterController : playerController {
 	}
 	private void shoot(){
 		RaycastHit hit;
-		float distance = 100f;
-		if (Physics.Raycast (transform.position, facing * distance, out hit, 10000f)) {
-			print (hit.collider.gameObject.name);
-			if (hit.collider.gameObject.name == "face") {
-				Destroy(hit.collider.gameObject);
+		float distance = 1.8f;
+		if (Physics.Raycast (transform.position, facing * 100f, out hit, distance)) {
+			if (hit.collider.gameObject.tag == "Minion") {
+				Push(hit.collider.gameObject);
 			}
 		}
-
 		Debug.DrawRay (transform.position, facing * distance);
 	}
-
+	private void Push(GameObject zombie){
+		print (zombie.name);
+		zombie.GetComponent<Rigidbody> ().AddForce (facing*500f);
+	}
 
 
 
