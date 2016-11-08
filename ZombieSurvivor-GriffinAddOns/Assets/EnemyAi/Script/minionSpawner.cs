@@ -7,30 +7,17 @@ public class minionSpawner : MonoBehaviour {
 	public float timer;
 	public int activate;
 
+	GameObject Manager;
+
 	void Start () {
+		Manager = GameObject.Find ("MinionManager");
 
 	}
 
-	void FixedUpdate () {
-		
-		//print (Time.deltaTime);
-
-		timer = timer + Time.deltaTime;
-
-		//print (timer);
-
-		if (timer >= activate) {
-
-			Spawn ();
-			timer = 0;
-
-		}
-
-	}
-
-	void Spawn () {
+	public void Spawn () {
 
 		Instantiate (Minion, transform.position, Quaternion.identity);
+		Manager.SendMessage ("AddToCount");
 
 	}
 

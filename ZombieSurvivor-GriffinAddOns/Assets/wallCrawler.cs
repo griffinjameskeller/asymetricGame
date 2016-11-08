@@ -18,9 +18,12 @@ public class wallCrawler : MonoBehaviour {
 
 	Vector3 leftCheck, rightCheck, angle, dir, targetPos;
 
+	GameObject Manager;
+
 
 	void Start () {
 
+		Manager = GameObject.Find ("MinionManager");
 		rb = GetComponent<Rigidbody> ();
 	}
 
@@ -33,6 +36,7 @@ public class wallCrawler : MonoBehaviour {
 			rightCheck = transform.right;
 			CheckFront ();
 			CheckSides ();
+			CheckForEnemies ();
 			Movement ();
 
 			Debug.DrawRay (transform.position, transform.forward * 2, Color.red);
@@ -204,6 +208,20 @@ public class wallCrawler : MonoBehaviour {
 		dir = gameObject.transform.position - targetPos;
 		rb.velocity = -dir * 2f;
 
+	}
+
+	public void TargetDeleted () {
+
+		Destroy (gameObject);
+	}
+
+	void OnCollisionEnter (Collision col) {
+
+		if (gotTarget && col.gameObject.layer == 8) {
+
+			Manager.SendMessage ("SubToCount");
+			Destroy (gameObject);
+		}
 	}
 		
 }
