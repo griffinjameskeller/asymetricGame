@@ -13,7 +13,6 @@ public class projectileExplode : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 		timer -= Time.deltaTime;
 
 			if (timer < 1) {
@@ -25,6 +24,5 @@ public class projectileExplode : MonoBehaviour {
 		if (timer < 0.4f) {
 			Destroy(this.gameObject);
 		}
-
 	}
 }

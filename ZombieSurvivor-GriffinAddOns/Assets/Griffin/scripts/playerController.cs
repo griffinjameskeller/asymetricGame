@@ -4,15 +4,14 @@ using System.Collections;
 public class playerController : MonoBehaviour {
 	protected GameObject char1;
 	protected GameObject charBody1;
-	public string xcontrol;
-	public string ycontrol;
-	public string firecontrol;
 
-	private int hp = 300;
+	private int hp = 10;
 	private float speedAlter = 1;
 	private bool isZombie = false;
-	private const float WALK_SPEED = 6f;
-
+	private const float WALK_SPEED = 3f;
+	private float speedUp = 1;
+	private GameObject runner;
+	private float runnerDistance = 2;
 	protected Vector3 facing;
 	protected float runLevel = 1f;
 
@@ -23,12 +22,11 @@ public class playerController : MonoBehaviour {
 				becomeZombie ();
 			}
 		} 
-		print (hp);
 	}
-
 
 	// Use this for initialization
 	void Start () {
+		runner =  GameObject.Find ("playerRunner");
 		char1 = gameObject;
 		charBody1 = GameObject.Find (name + "body");
 	}
@@ -36,13 +34,16 @@ public class playerController : MonoBehaviour {
 	void Update () {
 		updating ();
 
-		float valuex = Input.GetAxis (xcontrol); 
+		detectRunner ();
+
+
+		float valuex = Input.GetAxis ("Horizontal"); 
 		//Left right button
-		float valuey = Input.GetAxis (ycontrol); 
+		float valuey = Input.GetAxis ("Vertical"); 
 		//Up down button
-		bool action = Input.GetButton (firecontrol);
+		bool action = Input.GetButton ("Fire1");
 		//Action button
-		//bool actionTwo = Input.GetButton ("XXX");
+		bool actionTwo = Input.GetButton ("Fire2");
 		//Action button
 
 		//Walking and attacking
@@ -59,11 +60,11 @@ public class playerController : MonoBehaviour {
 				stopAction1 ();
 			}
 
-			/*if (actionTwo) {
+			if (actionTwo) {
 				startAction2 ();
 			} else {
 				stopAction2 ();
-			}*/
+			}
 		}
 	}
 	protected virtual void updating(){
@@ -81,12 +82,19 @@ public class playerController : MonoBehaviour {
 	protected virtual void stopAction2(){
 		//add action
 	}
-
+	private void detectRunner(){
+		if (runner) {
+			float dis = Vector3.Distance (gameObject.transform.position, runner.transform.position);
+			if (dis < runnerDistance && runner.GetComponent<playerRunner> ().isDashing) {
+				speedUp = 2f;
+			} else {
+				speedUp = 1;
+			}
+		}
+	}
 	private void becomeZombie(){
 		isZombie = true;
-		speedAlter = 0.2f;
-		Destroy (char1);
-		Destroy (charBody1);
+		Destroy (gameObject);
 	}
 	private void stopWalk(){
 		char1.GetComponent<Rigidbody> ().velocity =new Vector3();
@@ -97,7 +105,7 @@ public class playerController : MonoBehaviour {
 
 		//char1.transform.Translate (dir*WALK_SPEED*speedAlter);
 
-		char1.GetComponent<Rigidbody> ().velocity = dir * WALK_SPEED * speedAlter;
+		char1.GetComponent<Rigidbody> ().velocity = dir * WALK_SPEED * speedAlter * speedUp;
 
 		finalAngle = Mathf.Atan2(dir.x,dir.z)/Mathf.PI*180f;
 		if (finalAngle < 0) {
@@ -114,11 +122,10 @@ public class playerController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		if(collision.gameObject.tag=="Minion"){
-			hit (50);
-		}
+		if (collision.gameObject.tag == "Minion") {
+			hit (1);
+		} 
 	}
 
-
-		
+	
 }
