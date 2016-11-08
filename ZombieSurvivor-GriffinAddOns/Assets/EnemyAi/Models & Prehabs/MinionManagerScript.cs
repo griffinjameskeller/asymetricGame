@@ -50,4 +50,9 @@ public class MinionManagerScript : MonoBehaviour {
 
 		minionCount = minionCount - 1;
 	}
+
+	public void AddMaxCount () {
+
+		maxMinionCount = maxMinionCount + 12;
+	}
 }

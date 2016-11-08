@@ -202,11 +202,15 @@ public class wallCrawler : MonoBehaviour {
 	}
 
 	void Chaser () {
-
-		targetPos = GameObject.Find (targetName).transform.position;
-		print (targetPos);
-		dir = gameObject.transform.position - targetPos;
-		rb.velocity = -dir * 2f;
+		GameObject targetObj = GameObject.Find (targetName);
+		if (targetObj) {
+			targetPos = targetObj.transform.position;
+			print (targetPos);
+			dir = gameObject.transform.position - targetPos;
+			rb.velocity = -dir * 2f;
+		} else {
+			Destroy (gameObject);
+		}
 
 	}
 
