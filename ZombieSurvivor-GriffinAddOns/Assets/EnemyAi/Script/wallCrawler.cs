@@ -36,7 +36,6 @@ public class wallCrawler : MonoBehaviour {
 			rightCheck = transform.right;
 			CheckFront ();
 			CheckSides ();
-			CheckForEnemies ();
 			Movement ();
 
 			Debug.DrawRay (transform.position, transform.forward * 2, Color.red);
