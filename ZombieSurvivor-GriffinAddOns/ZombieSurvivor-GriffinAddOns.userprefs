@@ -1,6 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/EnemyAi/Script/wallCrawler.cs">
+    <Files>
+      <File FileName="Assets/EnemyAi/Models &amp; Prehabs/MinionManagerScript.cs" Line="56" Column="39" />
+      <File FileName="Assets/EnemyAi/Script/minionSpawner.cs" Line="16" Column="2" />
+      <File FileName="Assets/EnemyAi/Script/wallCrawler.cs" Line="38" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

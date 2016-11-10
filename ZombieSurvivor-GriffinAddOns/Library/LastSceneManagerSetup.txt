@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/EnemyAi/Pathfinding.unity
+- path: Assets/Finale.unity
   isLoaded: 1
   isActive: 1
