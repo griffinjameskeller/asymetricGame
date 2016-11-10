@@ -21,7 +21,7 @@ public class genLight : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	 
-		lightLevel.intensity = gen.genFixLevel * speed;
+		//lightLevel.intensity = gen.genFixLevel * speed;
 
 		if (gen.genFixLevel > 10) {
 

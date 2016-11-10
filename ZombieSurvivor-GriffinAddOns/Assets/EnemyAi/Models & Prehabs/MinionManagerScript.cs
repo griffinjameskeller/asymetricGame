@@ -9,6 +9,7 @@ public class MinionManagerScript : MonoBehaviour {
 	public float timer;
 	public int activate;
 
+
 	public GameObject[] spawners;
 
 	void FixedUpdate () {
@@ -53,6 +54,6 @@ public class MinionManagerScript : MonoBehaviour {
 
 	public void AddMaxCount () {
 
-		maxMinionCount = maxMinionCount + 12;
+		maxMinionCount = maxMinionCount + 8;
 	}
 }
