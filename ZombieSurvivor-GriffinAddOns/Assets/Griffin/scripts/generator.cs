@@ -12,10 +12,12 @@ public class generator : MonoBehaviour {
 	public bool inArea = false;
 	public float fixSpeed = 1f;
 	public Slider healthSlider;
+	private GameObject manager;
 
 	// Use this for initialization
 	void Start () {
-		engineer = GameObject.Find ("playerEng").GetComponent<playerEngiController> ();
+		engineer = GameObject.Find ("Eng").GetComponent<playerEngiController> ();
+		manager = GameObject.Find ("MinionManager");
 	}
 	
 	// Update is called once per frame
@@ -36,9 +38,11 @@ public class generator : MonoBehaviour {
 				}
 			}
 		} if (genFixLevel >= 10 && !genFixed) {
+			//print ("its fixed");
+			manager.SendMessage ("AddMaxCount");
 			engineer.numGenFixed = engineer.numGenFixed + 1;
 			genFixed = true;
-			GameObject.Find ("MinionManager").SendMessage ("AddMaxCount");
+		
 		}
 
 	}
